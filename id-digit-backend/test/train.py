@@ -38,7 +38,7 @@ model.save("nn.h5.keras")  # .h5 = HDF5
 print("Evaluate both models:")
 model.evaluate(x_test, y_test, batch_size=batch_size, verbose=2)
 
-new_model = keras.models.load_model("../nn.h5")
+new_model = keras.models.load_model("../nn.h5.keras")
 new_model.evaluate(x_test, y_test, batch_size=batch_size, verbose=2)
 
 

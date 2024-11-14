@@ -30,6 +30,10 @@ def predict(x):
 
 app = Flask(__name__)
 
+@app.route("/hello", methods=["GET", "POST"])
+def hello(): 
+    return jsonify("Hello, Welcome to GeeksForGeeks")
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
