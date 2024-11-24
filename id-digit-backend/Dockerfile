@@ -3,10 +3,10 @@
 FROM python:3.9-slim
 
 # Allow statements and log messages to immediately appear in the Knative logs
-ENV PYTHONUNBUFFERED True
+ENV PYTHONUNBUFFERED=True
 
 # Copy local code to the container image.
-ENV APP_HOME /app
+ENV APP_HOME=/app
 WORKDIR $APP_HOME
 COPY . ./
 
@@ -18,4 +18,8 @@ RUN pip install -r requirements.txt
 # For environments with multiple CPU cores, increase the number of workers
 # to be equal to the cores available.
 # Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance scaling.
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
+# ENV PORT=8501
+EXPOSE 8501
+
+# CMD exec gunicorn --bind :$ENV --bind :8501 --workers 1 --threads 8 --timeout 0 main:app
+

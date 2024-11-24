@@ -9,7 +9,6 @@ user_input = st.text_input('Enter a custom message:', 'Hello, Streamlit!')
 
 st.write('Customized Message:', user_input)
 
-
 API='https://id-digit-backend-svc-394099236728.europe-west2.run.app'
 #
 # API='http://localhost:5000/'
